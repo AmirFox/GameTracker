@@ -1,0 +1,28 @@
+﻿<h1>Games</h1>
+
+<p>A library of games retrieved from a back-end service</p>
+
+<p *ngIf="!games"><em>Loading...</em></p>
+
+<p>
+    <a [routerLink]="['/new-game']">Add New</a>
+</p>
+
+<table class='table' *ngIf="games">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Platforms</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let game of games">
+            <td>{{ game.title }}</td>
+            <td>{{game.platforms}}</td>
+            <td>
+                <a [routerLink]="['/modify-game/', game.id]">Edit</a> |
+                <a [routerLink]="" (click)="deleteGame(game.id)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

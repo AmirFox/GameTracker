@@ -1,0 +1,38 @@
+﻿<h1>{{pageTitle}} Game</h1>
+<p>{{pageDesc}}</p>
+<p *ngIf="isValidFormSubmitted" [ngClass]="'success'">
+    Form submitted successfully.
+</p>
+<form #gameForm="ngForm" (ngSubmit)="onFormSubmit(gameForm)">
+    <div>
+        <label class=" control-label col-md-12">Name</label>
+        <div class="col-md-4">
+            <input name="title"
+                   [ngModel]="game.title"
+                   required #title="ngModel">
+            <div *ngIf="title.invalid && gameForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+                You must enter a valid title.
+            </div>
+        </div>
+    </div>
+    <div>
+        <br />
+        <label class="control-label col-md-12" for="Platform">Platform</label>
+        <div class="col-md-4">
+            <select multiple name="selectedPlatforms"
+                    [ngModel]="game.platforms"
+                    required #selectedPlatforms="ngModel">
+                <option *ngFor="let pl of allPlatforms" [ngValue]="pl">
+                    {{ pl }}
+                </option>
+            </select>
+    <div *ngIf="selectedPlatforms.invalid && gameForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+        You must select at least one platform.
+    </div>
+        </div>
+    </div>
+<div>
+    <button type="submit" class="btn btn-default">Save</button>
+    <button class="btn" (click)="cancel()">Cancel</button>
+</div>
+</form>
