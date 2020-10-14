@@ -3,8 +3,8 @@ A simple web application allowing users to add, edit and delete games from an on
 
 Component  | Technologies used
 ------------- | -------------
-<b>Web Page</b>  | Angular
-<b>UI Tests</b>  | Protractor, Cucumber
-<b>Web API</b>  | ASP.NET
+<b>Web Page</b>  | Angular (TypeScript, HTML)
+<b>UI Tests</b>  | Protractor, Gherkin
+<b>Web API</b>  | ASP.NET (C#)
 <b>Data Storage</b>  | Entity Framework, SQLite
 <b>Unit Tests</b>  | XUnit, Moq
